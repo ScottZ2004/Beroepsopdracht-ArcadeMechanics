@@ -39,9 +39,13 @@ public class MovementChar : MonoBehaviour
                 transform.position -= new Vector3(SpeedGameChar, 0, 0) * Time.deltaTime;
             }
         }
+        
 
         
         
+        
+        
     }
+    
 
 }
