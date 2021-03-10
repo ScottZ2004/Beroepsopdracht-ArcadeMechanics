@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupItems : MonoBehaviour
+public class InterectWithGameObject : MonoBehaviour
 {
     //declare positioning variables
     float PosGameCharX;
@@ -16,28 +16,48 @@ public class PickupItems : MonoBehaviour
     public string[] Inventory = new string[30];
 
     //declare these variable
-    bool insideTrigger = false;
+    bool CharIsOnTriggerPickUp = false;
+    bool CharIsOnTriggerOpen = false;
     public bool CanPickUpItem;
+    public bool CanOpenGameObject;
     
-    public string nameCollidedGameObject;
+    //declare the strings
+    public string nameCollidedGameObjectPickUp;
+    public string nameCollidedGameObjectOpen;
+
     //if player is inside the collider of the red key
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // if tag of colider is PickupableGameObject
         if (collision.gameObject.CompareTag("PickupableGameObject"))
         {
-            insideTrigger = true;
-            nameCollidedGameObject = collision.gameObject.name;
+            CharIsOnTriggerPickUp = true;
+            nameCollidedGameObjectPickUp = collision.gameObject.name;
             
+        }
+
+        // if tag of colider is OpenAbleGameObject
+        if (collision.gameObject.CompareTag("OpenAbleGameObject"))
+        {
+            CharIsOnTriggerOpen = true;
+            nameCollidedGameObjectOpen = collision.gameObject.name;
         }
     }
 
     //if player gets of the collider of the red key
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // if tag of colider is PickupableGameObject
         if (collision.gameObject.CompareTag("PickupableGameObject"))
         {
-            insideTrigger = false;
+            CharIsOnTriggerPickUp = false;
             
+        }
+
+        // if tag of colider is OpenAbleGameObject
+        if (collision.gameObject.CompareTag("OpenAbleGameObject"))
+        {
+            CharIsOnTriggerOpen = false;
         }
     }
 
@@ -52,19 +72,28 @@ public class PickupItems : MonoBehaviour
         XPosPressE = PosGameCharX + 1.75f;
         YPosPressE = PosGameCharY + 1;
 
+        //sets these booleans to true so you can pick up more items in the game
         CanPickUpItem = true;
+        CanOpenGameObject = true;
 
-        if(insideTrigger)
+        if(CharIsOnTriggerPickUp)
         {
-            PickupRedItem();
+            PickupItem();
             
-        }else if(insideTrigger == false)
+        }
+        else if(CharIsOnTriggerOpen)
+        {
+            Open();
+            
+        }
+        else if(CharIsOnTriggerPickUp == false && CharIsOnTriggerOpen == false)
         {
             GameObject.Find("PressE").transform.position = new Vector3(0, 0, 1);
         }
     }
     
-    void PickupRedItem()
+    //this function is if player pickd a item up
+    void PickupItem()
     {
         //sets the PressE to the position in witch you can see it 
         GameObject.Find("PressE").transform.position = new Vector3(XPosPressE, YPosPressE, -2);
@@ -73,14 +102,14 @@ public class PickupItems : MonoBehaviour
         if(CanPickUpItem && Input.GetKey(KeyCode.E))
         {
             //Destroy's item so you can't pick it up again
-            Destroy(GameObject.Find(nameCollidedGameObject));
+            Destroy(GameObject.Find(nameCollidedGameObjectPickUp));
             
             //add Red Key to inventory
             for(int i = 0; i < Inventory.Length; i++)
             {
                 if (Inventory[i] == "")
                 {
-                    Inventory[i] = nameCollidedGameObject;
+                    Inventory[i] = nameCollidedGameObjectPickUp;
                     i = Inventory.Length + 1;
                 }
             }
@@ -90,6 +119,12 @@ public class PickupItems : MonoBehaviour
         }
         
     }
-    
+
+    //this function is if player opens a gameobject
+    void Open()
+    {
+        //sets the PressE to the position in witch you can see it 
+        GameObject.Find("PressE").transform.position = new Vector3(XPosPressE, YPosPressE, -2);
+    }
 
 }
