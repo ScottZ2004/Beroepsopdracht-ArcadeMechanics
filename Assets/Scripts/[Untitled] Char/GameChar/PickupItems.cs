@@ -17,14 +17,16 @@ public class PickupItems : MonoBehaviour
 
     //declare these variable
     bool insideTrigger = false;
-    public bool kanItemOppakken = true;
+    public bool CanPickUpItem;
     
+    public string nameCollidedGameObject;
     //if player is inside the collider of the red key
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PickupableGameObject"))
         {
             insideTrigger = true;
+            nameCollidedGameObject = collision.gameObject.name;
             
         }
     }
@@ -46,45 +48,45 @@ public class PickupItems : MonoBehaviour
         PosGameCharX = GameObject.Find("[Untitled] Char").transform.position.x;
         PosGameCharY = GameObject.Find("[Untitled] Char").transform.position.y;
 
-        Debug.Log("De x positie is " + PosGameCharX);
-        Debug.Log("De y positie is " + PosGameCharY);
-
         //sets positioning of new PressE position every frame
         XPosPressE = PosGameCharX + 1.75f;
         YPosPressE = PosGameCharY + 1;
 
+        CanPickUpItem = true;
+
         if(insideTrigger)
         {
-            KanItemOppakken();
+            PickupRedItem();
+            
         }else if(insideTrigger == false)
         {
             GameObject.Find("PressE").transform.position = new Vector3(0, 0, 1);
         }
     }
     
-    void KanItemOppakken()
+    void PickupRedItem()
     {
-        
         //sets the PressE to the position in witch you can see it 
         GameObject.Find("PressE").transform.position = new Vector3(XPosPressE, YPosPressE, -2);
         
         
-        if(kanItemOppakken && Input.GetKey(KeyCode.E))
+        if(CanPickUpItem && Input.GetKey(KeyCode.E))
         {
             //Destroy's item so you can't pick it up again
-            Destroy(GameObject.Find("RedKey"));
+            Destroy(GameObject.Find(nameCollidedGameObject));
             
             //add Red Key to inventory
             for(int i = 0; i < Inventory.Length; i++)
             {
                 if (Inventory[i] == "")
                 {
-                    Inventory[i] = "Red Key";
+                    Inventory[i] = nameCollidedGameObject;
                     i = Inventory.Length + 1;
                 }
             }
+            CanPickUpItem = false;
             
-            kanItemOppakken = false;
+            
         }
         
     }
