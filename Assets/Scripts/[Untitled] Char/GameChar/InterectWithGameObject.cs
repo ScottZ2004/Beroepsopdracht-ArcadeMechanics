@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class InterectWithGameObject : MonoBehaviour
 {
+    // make gameobjects
+    public GameObject WasmachineDicht1;
+    public GameObject WasmachineOpen1;
+
+    public GameObject WasmachineDicht2;
+    public GameObject WasmachineOpen2;
+    
+
     //declare positioning variables
     float PosGameCharX;
     float PosGameCharY;
@@ -24,6 +32,10 @@ public class InterectWithGameObject : MonoBehaviour
     //declare the strings
     public string nameCollidedGameObjectPickUp;
     public string nameCollidedGameObjectOpen;
+
+    //declare booleans for puzzle washingmachine
+    public bool Washingmachine1Open = false;
+    public bool Washingmachine2Open = false;
 
     //if player is inside the collider of the red key
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,6 +73,14 @@ public class InterectWithGameObject : MonoBehaviour
         }
     }
 
+    //called in the begining
+    void Start()
+    {
+        //sets the open wachining machines in the beginning to false
+        WasmachineOpen1.SetActive(false);
+        WasmachineOpen2.SetActive(false);
+    }
+
     //called once every frame
     void Update()
     {
@@ -78,11 +98,13 @@ public class InterectWithGameObject : MonoBehaviour
 
         if(CharIsOnTriggerPickUp)
         {
+            //trigers function pickupitem
             PickupItem();
             
         }
         else if(CharIsOnTriggerOpen)
         {
+            //trigers function open
             Open();
             
         }
@@ -90,7 +112,16 @@ public class InterectWithGameObject : MonoBehaviour
         {
             GameObject.Find("PressE").transform.position = new Vector3(0, 0, 1);
         }
+
+        //if washingmachine 1 is open and washingmachine 2 is closed, debug
+        if(Washingmachine1Open == true && Washingmachine2Open == false)
+        {
+            Destroy(GameObject.Find("Asset 4"));
+        }
     }
+
+    //*under here*
+    //these function are if player collides with gameobjects
     
     //this function is if player pickd a item up
     void PickupItem()
@@ -125,6 +156,41 @@ public class InterectWithGameObject : MonoBehaviour
     {
         //sets the PressE to the position in witch you can see it 
         GameObject.Find("PressE").transform.position = new Vector3(XPosPressE, YPosPressE, -2);
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 1")
+            {
+                WasmachineDicht1.SetActive(false);
+                WasmachineOpen1.SetActive(true);
+                Washingmachine1Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 1")
+            {
+                WasmachineOpen1.SetActive(false);
+                WasmachineDicht1.SetActive(true);
+                Washingmachine1Open = false;
+            }
+            
+        }
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 2")
+            {
+                WasmachineDicht2.SetActive(false);
+                WasmachineOpen2.SetActive(true);
+                Washingmachine2Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 2")
+            {
+                WasmachineOpen2.SetActive(false);
+                WasmachineDicht2.SetActive(true);
+                Washingmachine2Open = false;
+            }
+            
+        }
     }
 
+    
 }
