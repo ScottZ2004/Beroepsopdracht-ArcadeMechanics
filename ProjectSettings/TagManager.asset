@@ -7,6 +7,7 @@ TagManager:
   - UnmovableObject
   - PickupableGameObject
   - OpenAbleGameObject
+  - Panel
   layers:
   - Default
   - TransparentFX
