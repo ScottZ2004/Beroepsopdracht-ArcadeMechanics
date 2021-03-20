@@ -40,12 +40,8 @@ public class MovementChar : MonoBehaviour
             }
         }
         
-
-        
-        
-        
-        
     }
     
+
 
 }
