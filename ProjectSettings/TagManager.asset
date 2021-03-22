@@ -8,6 +8,7 @@ TagManager:
   - PickupableGameObject
   - OpenAbleGameObject
   - Panel
+  - DoorToOtherLevel
   layers:
   - Default
   - TransparentFX
