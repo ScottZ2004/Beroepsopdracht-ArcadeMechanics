@@ -36,6 +36,8 @@ public class PanelPuzzle : MonoBehaviour
 
     public string[] InputPuzzle = new string[4];
 
+    public GameObject Deur;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,8 @@ public class PanelPuzzle : MonoBehaviour
             Interect.Movement.AbleToMove = true;
             PanelPuzzelSolved = true;
             PanelSmall.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(GameObject.Find("(Tijdelijke) Deur"));
+            Deur.SetActive(true);
         }
     }
 

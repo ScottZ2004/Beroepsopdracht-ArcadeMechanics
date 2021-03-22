@@ -89,8 +89,8 @@ public class InterectWithGameObject : MonoBehaviour
     void Update()
     {
         //sets positioning of char every frame
-        PosGameCharX = GameObject.Find("[Untitled] Char").transform.position.x;
-        PosGameCharY = GameObject.Find("[Untitled] Char").transform.position.y;
+        PosGameCharX = GameObject.Find("[Untitled] GameChar").transform.position.x;
+        PosGameCharY = GameObject.Find("[Untitled] GameChar").transform.position.y;
 
         //sets positioning of new PressE position every frame
         XPosPressE = PosGameCharX + 1.75f;
