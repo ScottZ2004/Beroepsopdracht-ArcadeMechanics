@@ -20,6 +20,7 @@ public class Knop9 : MonoBehaviour
         {
             if (Panel.InputPuzzle[i] == "" && Knop9IsPressed == false)
             {
+                SoundManager.PlaySound("ButtonPressed");
                 Panel.InputPuzzle[i] = "Knop 9";
                 i = Panel.InputPuzzle.Length + 1;
                 Knop9IsPressed = true;

@@ -43,12 +43,14 @@ public class OpenGameObject : MonoBehaviour
         {
             if (nameCollidedGameObjectOpen == "WasMachine Dicht 1")
             {
+                SoundManager.PlaySound("Open");
                 WasmachineDicht1.SetActive(false);
                 WasmachineOpen1.SetActive(true);
                 Washingmachine1Open = true;
             }
             else if (nameCollidedGameObjectOpen == "WasMachine Open 1")
             {
+                SoundManager.PlaySound("Close");
                 WasmachineOpen1.SetActive(false);
                 WasmachineDicht1.SetActive(true);
                 Washingmachine1Open = false;
@@ -60,12 +62,14 @@ public class OpenGameObject : MonoBehaviour
         {
             if (nameCollidedGameObjectOpen == "WasMachine Dicht 2")
             {
+                SoundManager.PlaySound("Open");
                 WasmachineDicht2.SetActive(false);
                 WasmachineOpen2.SetActive(true);
                 Washingmachine2Open = true;
             }
             else if (nameCollidedGameObjectOpen == "WasMachine Open 2")
             {
+                SoundManager.PlaySound("Close");
                 WasmachineOpen2.SetActive(false);
                 WasmachineDicht2.SetActive(true);
                 Washingmachine2Open = false;

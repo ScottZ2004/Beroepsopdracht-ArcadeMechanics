@@ -22,6 +22,7 @@ public class Knop2 : MonoBehaviour
         {
             if (Panel.InputPuzzle[i] == "" && Knop2IsPressed == false)
             {
+                SoundManager.PlaySound("ButtonPressed");
                 Panel.InputPuzzle[i] = "Knop 2";
                 i = Panel.InputPuzzle.Length + 1;
                 Knop2IsPressed = true;

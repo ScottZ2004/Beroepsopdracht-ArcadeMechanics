@@ -32,6 +32,7 @@ public class PickUp : MonoBehaviour
 
         if (CanPickUpItem && Input.GetKey(KeyCode.E))
         {
+            SoundManager.PlaySound("Pickup");
             //Destroy's item so you can't pick it up again
             Destroy(GameObject.Find(nameCollidedGameObjectPickUp));
 

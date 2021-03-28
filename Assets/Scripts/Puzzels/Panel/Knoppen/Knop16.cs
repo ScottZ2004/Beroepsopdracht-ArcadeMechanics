@@ -16,10 +16,12 @@ public class Knop16 : MonoBehaviour
 
     void OnMouseDown()
     {
+
         for (int i = 0; i < Panel.InputPuzzle.Length; i++)
         {
             if (Panel.InputPuzzle[i] == "" && Knop16IsPressed == false)
             {
+                SoundManager.PlaySound("ButtonPressed");
                 Panel.InputPuzzle[i] = "Knop 16";
                 i = Panel.InputPuzzle.Length + 1;
                 Knop16IsPressed = true;
