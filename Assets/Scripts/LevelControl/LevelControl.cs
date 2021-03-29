@@ -11,7 +11,7 @@ public class LevelControl : MonoBehaviour
         if (other.CompareTag("DoorToOtherLevel"))
         {
             
-            Debug.Log("Je gaat de deur in");
+            
             SceneManager.LoadScene("Test");
         }
     }
@@ -19,6 +19,11 @@ public class LevelControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(StartButton.StartIsPressed == true)
+        {
+            
+            SceneManager.LoadScene("TestingScene");
+            StartButton.StartIsPressed = false;
+        }
     }
 }
