@@ -10,8 +10,6 @@ public class LevelControl : MonoBehaviour
     {
         if (other.CompareTag("DoorToOtherLevel"))
         {
-            
-            
             SceneManager.LoadScene("Test");
         }
     }
@@ -24,6 +22,7 @@ public class LevelControl : MonoBehaviour
             
             SceneManager.LoadScene("TestingScene");
             StartButton.StartIsPressed = false;
+            
         }
     }
 }

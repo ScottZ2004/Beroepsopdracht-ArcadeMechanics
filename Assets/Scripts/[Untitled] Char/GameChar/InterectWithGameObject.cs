@@ -12,6 +12,7 @@ public class InterectWithGameObject : MonoBehaviour
     public OpenGameObject opengameobject;
     public PickUp pickup;
     public PanelPuzzle panelpuzzle;
+    public BoomBox boomBox;
 
     //declare positioning variables
     public float PosGameCharX;
@@ -34,6 +35,8 @@ public class InterectWithGameObject : MonoBehaviour
         opengameobject = GameObject.FindObjectOfType<OpenGameObject>();
         pickup = GameObject.FindObjectOfType<PickUp>();
         panelpuzzle = GameObject.FindObjectOfType<PanelPuzzle>();
+        boomBox = GameObject.FindObjectOfType<BoomBox>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -116,7 +119,7 @@ public class InterectWithGameObject : MonoBehaviour
         {
             panelpuzzle.UsePanel();
         }
-        else if(pickup.CharIsOnTriggerPickUp == false && opengameobject.CharIsOnTriggerOpen == false && panelpuzzle.PlayerIsNearPanel == false)
+        else if(pickup.CharIsOnTriggerPickUp == false && opengameobject.CharIsOnTriggerOpen == false && panelpuzzle.PlayerIsNearPanel == false && boomBox.CanInsertCasette == false) 
         {
             GameObject.Find("PressE").transform.position = new Vector3(0 , 0, 2);
         }

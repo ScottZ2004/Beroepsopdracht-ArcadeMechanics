@@ -17,13 +17,10 @@ public class PickUp : MonoBehaviour
     void Start()
     {
         Interect = GameObject.FindObjectOfType<InterectWithGameObject>();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void PickupItem()
     {
         //sets the PressE to the position in witch you can see it 
@@ -42,6 +39,16 @@ public class PickUp : MonoBehaviour
                 if (Inventory[i] == "")
                 {
                     Inventory[i] = nameCollidedGameObjectPickUp;
+                    
+                    if(nameCollidedGameObjectPickUp == "RedKey")
+                    {
+                        Scene1.RedKeyIsPickedUp = true;
+                    }
+                    else if(nameCollidedGameObjectPickUp == "YellowKey")
+                    {
+                        Scene1.YellowKeyIsPickedUp = true;
+                    }
+
                     i = Inventory.Length + 1;
                 }
             }
