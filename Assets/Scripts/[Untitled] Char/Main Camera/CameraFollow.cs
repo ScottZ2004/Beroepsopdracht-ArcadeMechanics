@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     private Transform playerTransform;
+    public static bool CamerIsFollowing = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,16 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //we store currnet camera position in var temp
-        Vector3 temp = transform.position;
+        if (CamerIsFollowing)
+        {
+            //we store currnet camera position in var temp
+            Vector3 temp = transform.position;
 
-        temp.x = playerTransform.position.x;
-        temp.y = playerTransform.position.y;
+            temp.x = playerTransform.position.x;
+            temp.y = playerTransform.position.y;
 
-        // we set back the camera's temp position to the camera current position
-        transform.position = temp;
+            // we set back the camera's temp position to the camera current position
+            transform.position = temp;
+        }
     }
 }

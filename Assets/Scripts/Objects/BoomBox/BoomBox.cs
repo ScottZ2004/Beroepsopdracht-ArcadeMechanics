@@ -69,6 +69,8 @@ public class BoomBox : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && BoomBoxIsPlaying == false)
         {
+            SoundManager.PlaySound("UseCassete");
+            SoundManager.PlaySound("BoomBoxMusic");
             BoomBoxIsPlaying = true;
             Instantiate(musicNotes, new Vector3(5.94f, 4.6939f, -1), Quaternion.identity);
         }

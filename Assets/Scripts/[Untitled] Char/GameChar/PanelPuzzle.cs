@@ -71,6 +71,7 @@ public class PanelPuzzle : MonoBehaviour
             Interect.Movement.AbleToMove = true;
             PanelPuzzelSolved = true;
             PanelSmall.GetComponent<BoxCollider2D>().enabled = false;
+            SoundManager.PlaySound("DoorOpens");
             Destroy(GameObject.Find("(Tijdelijke) Deur"));
             Deur.SetActive(false);
         }

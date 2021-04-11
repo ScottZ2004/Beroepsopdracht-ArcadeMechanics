@@ -42,7 +42,7 @@ public class Licht : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Ticks = " + ticks);
+        
 
         YouDiedPosX = movementChar.transform.position.x;
         YouDiedPosY = movementChar.transform.position.y;

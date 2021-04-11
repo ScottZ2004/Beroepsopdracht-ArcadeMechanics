@@ -57,6 +57,7 @@ public class Switch : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                SoundManager.PlaySound("SwitchLever");
                 if (SwitchIsUp)
                 {
                     HendelOmhoog.SetActive(false);

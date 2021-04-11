@@ -53,6 +53,7 @@ public class Deur1 : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                SoundManager.PlaySound("DoorOpens");
                 Destroy(gameObject);
             }
         }

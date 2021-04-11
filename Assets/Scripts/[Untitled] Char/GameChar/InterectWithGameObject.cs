@@ -15,6 +15,7 @@ public class InterectWithGameObject : MonoBehaviour
     public BoomBox boomBox;
     public Deur1 deur1;
     public Switch SwitchScript;
+    public WasmachinePuzzel wasmachinePuzzel;
 
     //declare positioning variables
     public float PosGameCharX;
@@ -24,7 +25,7 @@ public class InterectWithGameObject : MonoBehaviour
     public float XPosPressE;
     public float YPosPressE;
 
-    
+    public static bool washingMachinePuzzleSolved;
 
     
     
@@ -40,6 +41,7 @@ public class InterectWithGameObject : MonoBehaviour
         boomBox = GameObject.FindObjectOfType<BoomBox>();
         deur1 = GameObject.FindObjectOfType<Deur1>();
         SwitchScript = GameObject.FindObjectOfType<Switch>();
+        wasmachinePuzzel = GameObject.FindObjectOfType<WasmachinePuzzel>();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -130,9 +132,10 @@ public class InterectWithGameObject : MonoBehaviour
         }
 
         //if washingmachine 1 is open and washingmachine 2 is closed, debug
-        if(opengameobject.Washingmachine1Open == false && opengameobject.Washingmachine2Open == true && opengameobject.Washingmachine3Open == false && opengameobject.Washingmachine4Open == true && opengameobject.Washingmachine5Open == true && opengameobject.Washingmachine6Open == false)
+        if(washingMachinePuzzleSolved == false && opengameobject.Washingmachine1Open == false && opengameobject.Washingmachine2Open == true && opengameobject.Washingmachine3Open == false && opengameobject.Washingmachine4Open == true && opengameobject.Washingmachine5Open == true && opengameobject.Washingmachine6Open == false)
         {
-            Destroy(GameObject.Find("gevangenis deur links"));
+            wasmachinePuzzel.PlayCutscene();
+            
         }
     }
 
