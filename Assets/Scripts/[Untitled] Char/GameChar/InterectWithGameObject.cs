@@ -14,6 +14,7 @@ public class InterectWithGameObject : MonoBehaviour
     public PanelPuzzle panelpuzzle;
     public BoomBox boomBox;
     public Deur1 deur1;
+    public Switch SwitchScript;
 
     //declare positioning variables
     public float PosGameCharX;
@@ -38,6 +39,7 @@ public class InterectWithGameObject : MonoBehaviour
         panelpuzzle = GameObject.FindObjectOfType<PanelPuzzle>();
         boomBox = GameObject.FindObjectOfType<BoomBox>();
         deur1 = GameObject.FindObjectOfType<Deur1>();
+        SwitchScript = GameObject.FindObjectOfType<Switch>();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -121,7 +123,7 @@ public class InterectWithGameObject : MonoBehaviour
         {
             panelpuzzle.UsePanel();
         }
-        else if(pickup.CharIsOnTriggerPickUp == false && opengameobject.CharIsOnTriggerOpen == false && panelpuzzle.PlayerIsNearPanel == false && boomBox.CanInsertCasette == false && deur1.PlayerIsNearDoor == false) 
+        else if(pickup.CharIsOnTriggerPickUp == false && opengameobject.CharIsOnTriggerOpen == false && panelpuzzle.PlayerIsNearPanel == false && boomBox.CanInsertCasette == false && deur1.PlayerIsNearDoor == false && SwitchScript.PlayerIsNearSwitch == false) 
         {
             
             GameObject.Find("PressE").transform.position = new Vector3(0 , 0, 2);

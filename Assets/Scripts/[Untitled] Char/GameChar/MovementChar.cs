@@ -7,7 +7,7 @@ public class MovementChar : MonoBehaviour
     
     //this bool is for the ability to move the char
     public bool AbleToMove = true;
-    public float SpeedGameChar = 4f;
+    public static float SpeedGameChar = 4f;
 
     public bool GameCharHasNoKey = true;
     public bool GameCharHasBlueKey = false;
