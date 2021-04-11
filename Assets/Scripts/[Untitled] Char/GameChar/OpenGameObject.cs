@@ -14,9 +14,26 @@ public class OpenGameObject : MonoBehaviour
     public GameObject WasmachineDicht2;
     public GameObject WasmachineOpen2;
 
+    public GameObject WasmachineDicht3;
+    public GameObject WasmachineOpen3;
+
+    public GameObject WasmachineDicht4;
+    public GameObject WasmachineOpen4;
+
+    public GameObject WasmachineDicht5;
+    public GameObject WasmachineOpen5;
+
+    public GameObject WasmachineDicht6;
+    public GameObject WasmachineOpen6;
+
+
     //declare folowing variables
     public bool Washingmachine1Open = false;
     public bool Washingmachine2Open = false;
+    public bool Washingmachine3Open = false;
+    public bool Washingmachine4Open = false;
+    public bool Washingmachine5Open = false;
+    public bool Washingmachine6Open = false;
 
     public bool CharIsOnTriggerOpen = false;
     public bool CanOpenGameObject;
@@ -26,12 +43,6 @@ public class OpenGameObject : MonoBehaviour
     void Start()
     {
         Interect = GameObject.FindObjectOfType<InterectWithGameObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Open()
@@ -73,6 +84,82 @@ public class OpenGameObject : MonoBehaviour
                 WasmachineOpen2.SetActive(false);
                 WasmachineDicht2.SetActive(true);
                 Washingmachine2Open = false;
+            }
+
+        }
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 3")
+            {
+                SoundManager.PlaySound("Open");
+                WasmachineDicht3.SetActive(false);
+                WasmachineOpen3.SetActive(true);
+                Washingmachine3Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 3")
+            {
+                SoundManager.PlaySound("Close");
+                WasmachineOpen3.SetActive(false);
+                WasmachineDicht3.SetActive(true);
+                Washingmachine3Open = false;
+            }
+
+        }
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 4")
+            {
+                SoundManager.PlaySound("Open");
+                WasmachineDicht4.SetActive(false);
+                WasmachineOpen4.SetActive(true);
+                Washingmachine4Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 4")
+            {
+                SoundManager.PlaySound("Close");
+                WasmachineOpen4.SetActive(false);
+                WasmachineDicht4.SetActive(true);
+                Washingmachine4Open = false;
+            }
+
+        }
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 5")
+            {
+                SoundManager.PlaySound("Open");
+                WasmachineDicht5.SetActive(false);
+                WasmachineOpen5.SetActive(true);
+                Washingmachine5Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 5")
+            {
+                SoundManager.PlaySound("Close");
+                WasmachineOpen5.SetActive(false);
+                WasmachineDicht5.SetActive(true);
+                Washingmachine5Open = false;
+            }
+
+        }
+
+        if (CanOpenGameObject && Input.GetKeyDown(KeyCode.E))
+        {
+            if (nameCollidedGameObjectOpen == "WasMachine Dicht 6")
+            {
+                SoundManager.PlaySound("Open");
+                WasmachineDicht6.SetActive(false);
+                WasmachineOpen6.SetActive(true);
+                Washingmachine6Open = true;
+            }
+            else if (nameCollidedGameObjectOpen == "WasMachine Open 6")
+            {
+                SoundManager.PlaySound("Close");
+                WasmachineOpen6.SetActive(false);
+                WasmachineDicht6.SetActive(true);
+                Washingmachine6Open = false;
             }
 
         }

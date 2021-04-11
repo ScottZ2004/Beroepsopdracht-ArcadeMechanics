@@ -16,7 +16,7 @@ public class MusicNotes : MonoBehaviour
     {
         
         transform.position += new Vector3(0.3f, 0.25f, 0) * Time.deltaTime;
-        if(transform.position.x > 0)
+        if(transform.position.x > 8)
         {
             Destroy(gameObject);
             BoomBox.BoomBoxIsPlaying = false;

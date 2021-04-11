@@ -72,7 +72,7 @@ public class PanelPuzzle : MonoBehaviour
             PanelPuzzelSolved = true;
             PanelSmall.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(GameObject.Find("(Tijdelijke) Deur"));
-            Deur.SetActive(true);
+            Deur.SetActive(false);
         }
     }
 

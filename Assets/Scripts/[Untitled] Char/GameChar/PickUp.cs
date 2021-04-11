@@ -40,14 +40,7 @@ public class PickUp : MonoBehaviour
                 {
                     Inventory[i] = nameCollidedGameObjectPickUp;
                     
-                    if(nameCollidedGameObjectPickUp == "RedKey")
-                    {
-                        Scene1.RedKeyIsPickedUp = true;
-                    }
-                    else if(nameCollidedGameObjectPickUp == "YellowKey")
-                    {
-                        Scene1.YellowKeyIsPickedUp = true;
-                    }
+                   
 
                     i = Inventory.Length + 1;
                 }

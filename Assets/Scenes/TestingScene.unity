@@ -2470,7 +2470,6 @@ MonoBehaviour:
   musicNotes: {fileID: 4099433186667002166, guid: 3ce1c84f65ec7f04a8aa188ed42d372d,
     type: 3}
   CanInsertCasette: 0
-  BoomBoxIsPlaying: 0
 --- !u!58 &687702808
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2733,7 +2732,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 9.3297205, y: 16.014202}
-  m_EdgeRadius: 1
+  m_EdgeRadius: 0.52
 --- !u!212 &790492326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3034,8 +3033,20 @@ MonoBehaviour:
   WasmachineOpen1: {fileID: 374562523}
   WasmachineDicht2: {fileID: 1689842600}
   WasmachineOpen2: {fileID: 1341558220}
+  WasmachineDicht3: {fileID: 0}
+  WasmachineOpen3: {fileID: 0}
+  WasmachineDicht4: {fileID: 0}
+  WasmachineOpen4: {fileID: 0}
+  WasmachineDicht5: {fileID: 0}
+  WasmachineOpen5: {fileID: 0}
+  WasmachineDicht6: {fileID: 0}
+  WasmachineOpen6: {fileID: 0}
   Washingmachine1Open: 0
   Washingmachine2Open: 0
+  Washingmachine3Open: 0
+  Washingmachine4Open: 0
+  Washingmachine5Open: 0
+  Washingmachine6Open: 0
   CharIsOnTriggerOpen: 0
   CanOpenGameObject: 0
   nameCollidedGameObjectOpen: 
@@ -5649,7 +5660,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.863061, y: 2.2084322}
-  m_EdgeRadius: 1
+  m_EdgeRadius: 0
 --- !u!1 &2118191874
 GameObject:
   m_ObjectHideFlags: 0

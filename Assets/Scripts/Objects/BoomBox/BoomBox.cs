@@ -70,7 +70,7 @@ public class BoomBox : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && BoomBoxIsPlaying == false)
         {
             BoomBoxIsPlaying = true;
-            Instantiate(musicNotes, new Vector3(-3.212f, 1.941f, -1), Quaternion.identity);
+            Instantiate(musicNotes, new Vector3(5.94f, 4.6939f, -1), Quaternion.identity);
         }
     }
 }
